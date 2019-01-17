@@ -1,0 +1,99 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    outletWallLeft
+    {
+        type            noSlip;
+    }
+    fineWallsLeft
+    {
+        type            noSlip;
+    }
+    fineFrontAndBackLeft
+    {
+        type            zeroGradient;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+    }
+    symmetryWallLeft
+    {
+        type            cyclicAMI;
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+    }
+    inletLeft
+    {
+        type            fixedValue;
+        value           uniform (0 8.7 15.0);
+    }
+    inletWallsLeft
+    {
+        type            noSlip;
+    }
+    inletFacesLeft
+    {
+        type            zeroGradient;
+    }
+    fineWallsRight
+    {
+        type            noSlip;
+    }
+    outletWallRight
+    {
+        type            noSlip;
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+    }
+    fineFrontAndBackRight
+    {
+        type            zeroGradient;
+    }
+    symmetryWallRight
+    {
+        type            cyclicAMI;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+    }
+    inletRight
+    {
+       type            fixedValue;
+       value           uniform (0 8.7 15.0);
+    }
+    inletWallsRight
+    {
+        type            noSlip;
+    }
+    inletFacesRight
+    {
+        type            zeroGradient;
+    }
+}
+
+// ************************************************************************* //

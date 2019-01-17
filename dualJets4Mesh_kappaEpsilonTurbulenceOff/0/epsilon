@@ -1,0 +1,107 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform 2180.89;
+
+boundaryField
+{
+     outletWallLeft
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineWallsLeft
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineFrontAndBackLeft
+    {
+        type            zeroGradient;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+    }
+    symmetryWallLeft
+    {
+        type            cyclicAMI;
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+    }
+    inletLeft
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsLeft
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesLeft
+    {
+        type            zeroGradient;
+    }
+    fineWallsRight
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    outletWallRight
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+    }
+    fineFrontAndBackRight
+    {
+        type            zeroGradient;
+    }
+    symmetryWallRight
+    {
+        type            cyclicAMI;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+    }
+    inletRight
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsRight
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesRight
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

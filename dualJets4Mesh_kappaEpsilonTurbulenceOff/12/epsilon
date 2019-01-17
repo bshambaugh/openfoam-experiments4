@@ -1,0 +1,131 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "12";
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform 2180.89;
+
+boundaryField
+{
+    outletWallLeft
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineWallsLeft
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineFrontAndBackLeft
+    {
+        type            zeroGradient;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    symmetryWallLeft
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    inletLeft
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsLeft
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesLeft
+    {
+        type            zeroGradient;
+    }
+    fineWallsRight
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    outletWallRight
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    fineFrontAndBackRight
+    {
+        type            zeroGradient;
+    }
+    symmetryWallRight
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+        value           uniform 2180.89;
+    }
+    inletRight
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsRight
+    {
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesRight
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //
