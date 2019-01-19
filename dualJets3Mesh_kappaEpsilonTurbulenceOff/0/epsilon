@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform 2180.89;
+
+boundaryField
+{
+     outletWall
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineWalls
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    fineFrontAndBack
+    {
+        type            zeroGradient;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+    }
+    inletLeft
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsLeft
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesLeft
+    {
+        type            zeroGradient;
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+    }
+    inletRight
+    {
+        type            fixedValue;
+        value           uniform 2180.89;
+    }
+    inletWallsRight
+    {
+        type            epsilonWallFunction;
+        value           uniform 2180.89;
+    }
+    inletFacesRight
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

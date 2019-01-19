@@ -1,0 +1,88 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volSymmTensorField;
+    location    "7";
+    object      R;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform (0.753333 0 0 0.753333 0 0.753333);
+
+boundaryField
+{
+    outletWall
+    {
+        type            zeroGradient;
+    }
+    fineWalls
+    {
+        type            kqRWallFunction;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    fineFrontAndBack
+    {
+        type            zeroGradient;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletLeft
+    {
+        type            fixedValue;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletWallsLeft
+    {
+        type            kqRWallFunction;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletFacesLeft
+    {
+        type            zeroGradient;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletRight
+    {
+        type            fixedValue;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletWallsRight
+    {
+        type            kqRWallFunction;
+        value           uniform (0.753333 0 0 0.753333 0 0.753333);
+    }
+    inletFacesRight
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

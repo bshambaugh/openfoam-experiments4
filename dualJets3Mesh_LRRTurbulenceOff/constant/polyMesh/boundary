@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+13
+(
+    outletWall
+    {
+        type            patch;
+        nFaces          60;
+        startFace       2360;
+    }
+    fineWalls
+    {
+        type            wall;
+        nFaces          60;
+        startFace       2420;
+    }
+    fineFrontAndBack
+    {
+        type            patch;
+        nFaces          960;
+        startFace       2480;
+    }
+    fineplugLeft
+    {
+        type            cyclicAMI;
+        neighbourPatch  inletOutletLeft;
+        transform noOrdering;
+        nFaces          20;
+        startFace       3440;
+    }
+    fineplugRight
+    {
+        type            cyclicAMI;
+        neighbourPatch  inletOutletRight;
+        transform       noOrdering;
+        nFaces          20;
+        startFace       3460;
+    }
+    inletOutletLeft
+    {
+        type            cyclicAMI;
+        neighbourPatch  fineplugLeft;
+        transform       noOrdering;
+        nFaces          20;
+        startFace       3480;
+    }
+    inletLeft
+    {
+        type            patch;
+        nFaces          20;
+        startFace       3500;
+    }
+    inletWallsLeft
+    {
+        type            wall;
+        nFaces          40;
+        startFace       3520;
+    }
+    inletFacesLeft
+    {
+        type            patch;
+        nFaces          800;
+        startFace       3560;
+    }
+    inletOutletRight
+    {
+        type            cyclicAMI;
+        neighbourPatch  fineplugRight;
+        transform       noOrdering;
+        nFaces          20;
+        startFace       4360;
+    }
+    inletRight
+    {
+        type            patch;
+        nFaces          20;
+        startFace       4380;
+    }
+    inletWallsRight
+    {
+        type            wall;
+        nFaces          40;
+        startFace       4400;
+    }
+    inletFacesRight
+    {
+        type            patch;
+        nFaces          800;
+        startFace       4440;
+    }
+)
+
+// ************************************************************************* //
